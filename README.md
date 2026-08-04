@@ -5,7 +5,7 @@
 
 **1. Purpose of the Study**
 
-This study evaluates the effectiveness of amoxicillin/clavulanate in treating diverticulitis of the colon as compared to other treatments. This drug is commonly prescribed as first-line oral antibiotic therapy for uncomplicated diverticulitis.
+This study evaluates the effectiveness of amoxicillin/clavulanate in treating diverticulitis of the colon as compared to patients who did not receive this regimen within 14 days of diagnosis. This drug is commonly prescribed as first-line oral antibiotic therapy for uncomplicated diverticulitis.
 Using Atlas, I proved that a retrospective cohort for this drug-outcome pair can be constructed and analyzed using UCSF's de-identified research data assets.
 Outcome measure (treatment failure): a composite flag capturing evidence of clinical deterioration in the 30 days following the index diagnosis, or for patients being treated, after the first drug exposure, including:
 - IR drainage procedures (abscess drainage, percutaneous tube placement/change)
