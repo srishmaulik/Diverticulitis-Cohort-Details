@@ -23,13 +23,20 @@ This qualification cohort, including all patients who met the requirement of hav
 
 3. Cohort Definition — Treatment Cohort
 
-Of the 1,946 qualifying patients, those who additionally received amoxicillin/clavulanate (OMOP drug concepts 40105044, 40131073, 40131077, 40105046 and descendants) within 14 days of diagnosis were assigned to the treatment cohort: n = 311 patients.
 
-Table 1 — Treatment Cohort vs. Baseline (Non-Treatment) Cohort
+Table 1 — Qualification Cohort vs. Treatment Cohort
+
+This Table 1 compares the  full qualifying population (n=1,946, which includes the 311 treated patients) compared against the subset who received amoxicillin/clavulanate (n=311).
+
+<img width="550" height="645" alt="Screenshot 2026-08-04 at 12 07 12 PM" src="https://github.com/user-attachments/assets/14242e3c-677e-4f07-83e9-3ce55d6e1df0" />
+
+
+I have also created a Table 1 to show the comparison between those who didn't take the drug within 14 days(our control) and those who received amoxicillin/clavulanate (OMOP drug concepts 40105044, 40131073, 40131077, 40105046 and descendants) within 14 days of diagnosis were assigned to the treatment cohort: n = 311 patients.
+
 
 <img width="572" height="565" alt="Screenshot 2026-08-04 at 11 42 55 AM" src="https://github.com/user-attachments/assets/d2c462a8-c0d3-4029-be63-e078a15d2de3" />
 
-As seen in the table, the demographics were broadly similar, with a slight over-representation of the Asian community in the treatment cohort and no records of unrepresented/unknown races or native Hawaiins and Pacific Islanders. 
+As seen in the tables, the demographics were broadly similar, with a slight over-representation of the Asian community in the treatment cohort and no records of unrepresented/unknown races or native Hawaiins and Pacific Islanders. 
 
 4. Outcome Analysis
 
@@ -43,5 +50,16 @@ To determine what would be a failure of the drug, I have already listed the crit
 Statistical comparison:
 
 Absolute difference: 8.8 percentage points
-Relative risk: ~2.16x
-Two-proportion z-test: z ≈ 4.98, p < 0.0001
+
+Relative risk: 2.16x
+
+Two-proportion z-test: z = 4.98, p < 0.0001
+
+5. Statistical Power Analysis
+   
+Given the observed effect size (Cohen's h ≈ 0.34) and sample sizes (n1=311, n2=1,635), the achieved statistical power at α=0.05 exceeds 99%. The minimum treatment sample size required for conventional 80% power at this size and allocation ratio is approximately 83 patients, which is below the 311 patients available. Sample size is not a limiting factor in this analysis.
+
+6. Limitations
+
+- Confounding by Indication (The "Sicker Patient" Bias) : In a cohort study, doctors do not randomize who gets what. If patients who took amoxicillin/clavulanate had a higher failure rate than those who took nothing or something that was not a powerful broad spectrum antibiotic like what amoxicillin/clavulanate is, it is highly likely because the group that didn't take the drug had a much milder disease to begin with. Modern medical guidelines (such as those from the American Gastroenterological Association) even  recommend a no-antibiotic watchful waiting approach for very mild, completely uncomplicated diverticulitis, as these patients usually recover on their own. So if a doctor did prescribe amoxicillin/clavulanate, that patient likely had elevated markers like inflammation, more pain, meaning that they were already at a higher baseline risk for treatment failure or hospitalization. It should be noted that I evaluated patients with diverticulitis, choosing concept sets for that in Atlas. A vert severe form of this disease is diverticulitis with perforation. It is possible that some of the more severe patients with perforation were not even in the qualification cohort, and most of the patients had a very mild version of the disease.
+- Comparator composition: The baseline cohort excludes only patients who received amoxicillin/clavulanate within 14 days of diagnosis. It does not exclude patients who received an alternate antibiotic regimen (e.g metronidazole, fluoroquinolones). The baseline is therefore best described as "did not receive this specific drug early," not as a pure untreated comparator.
