@@ -25,7 +25,23 @@ Inclusion criteria:
   
 This qualification cohort, including all patients who met the requirement of having the diverticulitis diagnosis and were adults of the ages 18 or above, were included in this cohort. Here is the Table1 for this qualification cohort. 
 
-<img width="469" height="642" alt="Screenshot 2026-08-04 at 11 35 10 AM" src="https://github.com/user-attachments/assets/d4693e09-f3b2-45d4-92a4-bd5059d1a147" />
+| Demographic Characteristic | Qualification Cohort (n=1,946) |
+|----------------------------|-------------------------------:|
+| **Gender** | |
+| Female | 974 (50.1%) |
+| Male | 971 (49.9%) |
+| **Race** | |
+| White | 1,289 (66.2%) |
+| Other Races | 275 (14.1%) |
+| Asian | 158 (8.1%) |
+| Black or African American | 106 (5.4%) |
+| Unknown Race | 87 (4.5%) |
+| Native Hawaiian / Pacific Islander | 17 (0.9%) |
+| **Ethnicity** | |
+| Not Hispanic or Latino | 1,536 (78.9%) |
+| Hispanic or Latino | 269 (13.8%) |
+| Unknown Ethnicity | 141 (7.2%) |
+
 
 <img width="819" height="457" alt="Screenshot 2026-08-04 at 4 13 37 PM" src="https://github.com/user-attachments/assets/9047807f-3479-41d4-a184-1f0014699708" />
 
@@ -38,13 +54,42 @@ Table 1 — Qualification Cohort vs. Treatment Cohort
 
 This Table 1 compares the  full qualifying population (n=1,946, which includes the 311 treated patients) compared against the subset who received amoxicillin/clavulanate (n=311).
 
-<img width="550" height="645" alt="Screenshot 2026-08-04 at 12 07 12 PM" src="https://github.com/user-attachments/assets/14242e3c-677e-4f07-83e9-3ce55d6e1df0" />
-
+| Demographic Characteristic | Qualification Cohort (n=1,946) | Treatment Cohort (n=311) |
+|----------------------------|-------------------------------:|-------------------------:|
+| **Gender** | | |
+| Female | 974 (50.1%) | 149 (47.9%) |
+| Male | 971 (49.9%) | 162 (52.1%) |
+| **Race** | | |
+| White | 1,289 (66.2%) | 200 (65.8%) |
+| Other Races | 275 (14.1%) | 45 (14.8%) |
+| Asian | 158 (8.1%) | 41 (13.5%) |
+| Black or African American | 106 (5.4%) | 18 (5.9%) |
+| Unknown Race | 87 (4.5%) | — (suppressed, n < 11) |
+| Native Hawaiian / Pacific Islander | 17 (0.9%) | — (suppressed, n < 11) |
+| **Ethnicity** | | |
+| Not Hispanic or Latino | 1,536 (78.9%) | 266 (85.5%) |
+| Hispanic or Latino | 269 (13.8%) | 38 (12.2%) |
+| Unknown Ethnicity | 141 (7.2%) | 7 (2.3%) |
 
 I have also created a Table 1 to show the comparison between those who didn't take the drug within 14 days(our control) and those who received amoxicillin/clavulanate (OMOP drug concepts 40105044, 40131073, 40131077, 40105046 and descendants) within 14 days of diagnosis were assigned to the treatment cohort: n = 311 patients.
 
 
-<img width="572" height="565" alt="Screenshot 2026-08-04 at 11 42 55 AM" src="https://github.com/user-attachments/assets/d2c462a8-c0d3-4029-be63-e078a15d2de3" />
+| Demographic Characteristic | Baseline Cohort (n=1,635) | Treatment Cohort (n=311) |
+|----------------------------|--------------------------:|-------------------------:|
+| **Gender** | | |
+| Female | 825 (50.5%) | 149 (47.9%) |
+| Male | 810 (49.5%) | 162 (52.1%) |
+| **Race** | | |
+| White | 1,089 (66.6%) | 200 (65.8%) |
+| Other Races | 230 (14.1%) | 45 (14.8%) |
+| Asian | 117 (7.2%) | 41 (13.5%) |
+| Black or African American | 88 (5.4%) | 18 (5.9%) |
+| Unknown Race | 83 (5.0%) | — |
+| Native Hawaiian / Pacific Islander | 15 (0.9%) | — |
+| **Ethnicity** | | |
+| Not Hispanic or Latino | 1,270 (77.7%) | 266 (85.5%) |
+| Hispanic or Latino | 230 (14.1%) | 38 (12.2%) |
+| Unknown Ethnicity | 135 (8.2%) | 7 (2.3%) |
 
 As seen in the tables and images, the demographics were broadly similar, with a slight over-representation of the Asian community in the treatment cohort and suppressed records of unrepresented/unknown races or native Hawaiins and Pacific Islanders. 
 
@@ -58,10 +103,19 @@ The 30-day treatment-failure window was anchored to the diagnosis date for the b
 To measure the effectiveness of the amoxicillin/clavulanate drug, I conducted a measuring of the failure rates of the drug. 
 To determine what would be a failure of the drug, I have already listed the criteria in the first section, where I mentioned the Study's Purpose. Below is the table showing the difference in failure rates. 
 
-<img width="452" height="191" alt="Screenshot 2026-08-04 at 11 49 27 AM" src="https://github.com/user-attachments/assets/c9a7cc82-cc0b-4a93-9673-c349d783593e" />
+| Cohort | n | Treatment Failures | Failure Rate |
+|--------|--:|-------------------:|-------------:|
+| Treatment (amoxicillin/clavulanate) | 311 | 51 | 16.4% |
+| Baseline (no amox/clav within 14 days) | 1,635 | 124 | 7.6% |
 
 
-<img width="635" height="162" alt="Screenshot 2026-08-04 at 1 35 52 PM" src="https://github.com/user-attachments/assets/dc9540d6-da1f-490e-9c53-349e73992c19" />
+
+| Cohort | Failure | Success | Row Total |
+|--------|--------:|--------:|----------:|
+| Treatment | 51 | 260 | 311 |
+| Baseline | 124 | 1,511 | 1,635 |
+| **Column Total** | **175** | **1,771** | **1,946** |
+
 
 Statistical comparison:
 
