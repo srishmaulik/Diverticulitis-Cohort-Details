@@ -1,7 +1,7 @@
 **Srish Maulik** 
 **AD206**
 
-**A retrospective Cohort Study on the effect of Amoxicillin/Clavulanate for Diverticulitis of the Colon**
+**A retrospective cohort study on the effect of amoxicillin/clavulanate for diverticulitis of the colon**
 
 **1. Purpose of the Study**
 
