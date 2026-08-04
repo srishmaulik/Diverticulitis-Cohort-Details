@@ -23,6 +23,9 @@ This qualification cohort, including all patients who met the requirement of hav
 
 <img width="469" height="642" alt="Screenshot 2026-08-04 at 11 35 10 AM" src="https://github.com/user-attachments/assets/d4693e09-f3b2-45d4-92a4-bd5059d1a147" />
 
+<img width="819" height="457" alt="Screenshot 2026-08-04 at 4 13 37 PM" src="https://github.com/user-attachments/assets/9047807f-3479-41d4-a184-1f0014699708" />
+
+
 3. Cohort Definition — Treatment Cohort
 Of the 1,946 qualifying patients, those who additionally received amoxicillin/clavulanate (OMOP drug concepts 40105044, 40131073, 40131077, 40105046 and descendants) within 14 days of diagnosis were assigned to the treatment cohort: n = 311 patients, with a follow up window of 30 days. 
 
@@ -38,7 +41,10 @@ I have also created a Table 1 to show the comparison between those who didn't ta
 
 <img width="572" height="565" alt="Screenshot 2026-08-04 at 11 42 55 AM" src="https://github.com/user-attachments/assets/d2c462a8-c0d3-4029-be63-e078a15d2de3" />
 
-As seen in the tables, the demographics were broadly similar, with a slight over-representation of the Asian community in the treatment cohort and suppressed records of unrepresented/unknown races or native Hawaiins and Pacific Islanders. 
+As seen in the tables and images, the demographics were broadly similar, with a slight over-representation of the Asian community in the treatment cohort and suppressed records of unrepresented/unknown races or native Hawaiins and Pacific Islanders. 
+
+<img width="821" height="459" alt="Screenshot 2026-08-04 at 4 11 47 PM" src="https://github.com/user-attachments/assets/eeee6482-3a84-43b3-83e2-d46a80e74856" />
+
 
 4. Outcome Analysis
 
