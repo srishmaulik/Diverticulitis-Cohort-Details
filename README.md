@@ -1,3 +1,5 @@
+Srish Maulik AD206
+
 Retrospective Cohort Study: Amoxicillin/Clavulanate for Diverticulitis of the Colon
 
 1. Purpose of the Study
@@ -22,7 +24,7 @@ This qualification cohort, including all patients who met the requirement of hav
 <img width="469" height="642" alt="Screenshot 2026-08-04 at 11 35 10 AM" src="https://github.com/user-attachments/assets/d4693e09-f3b2-45d4-92a4-bd5059d1a147" />
 
 3. Cohort Definition — Treatment Cohort
-
+Of the 1,946 qualifying patients, those who additionally received amoxicillin/clavulanate (OMOP drug concepts 40105044, 40131073, 40131077, 40105046 and descendants) within 14 days of diagnosis were assigned to the treatment cohort: n = 311 patients, with a follow up window of 30 days. 
 
 Table 1 — Qualification Cohort vs. Treatment Cohort
 
@@ -36,7 +38,7 @@ I have also created a Table 1 to show the comparison between those who didn't ta
 
 <img width="572" height="565" alt="Screenshot 2026-08-04 at 11 42 55 AM" src="https://github.com/user-attachments/assets/d2c462a8-c0d3-4029-be63-e078a15d2de3" />
 
-As seen in the tables, the demographics were broadly similar, with a slight over-representation of the Asian community in the treatment cohort and no records of unrepresented/unknown races or native Hawaiins and Pacific Islanders. 
+As seen in the tables, the demographics were broadly similar, with a slight over-representation of the Asian community in the treatment cohort and suppressed records of unrepresented/unknown races or native Hawaiins and Pacific Islanders. 
 
 4. Outcome Analysis
 
@@ -47,17 +49,21 @@ To determine what would be a failure of the drug, I have already listed the crit
 <img width="452" height="191" alt="Screenshot 2026-08-04 at 11 49 27 AM" src="https://github.com/user-attachments/assets/c9a7cc82-cc0b-4a93-9673-c349d783593e" />
 
 
+<img width="635" height="162" alt="Screenshot 2026-08-04 at 1 35 52 PM" src="https://github.com/user-attachments/assets/dc9540d6-da1f-490e-9c53-349e73992c19" />
+
 Statistical comparison:
 
 Absolute difference: 8.8 percentage points
 
 Relative risk: 2.16x
 
-Two-proportion z-test: z = 4.98, p < 0.0001
+To check whether the treatment status has an association to the failure rate, I conducted a chi-square test, with my null hypothesis stating that there is no relationship between the treatment status and the failure rate observed. For our table, we get a df(degrees of freedom) = 1 and a χ² = 24.81. On evaluation of the chi-square distribution, the p value is calculated as 6.3×10⁻⁷. Hence the null hypothesis is rejected, and the p value indicates that a relationship does exist between the failure rate and the treatment status. 
+
+
 
 5. Statistical Power Analysis
    
-Given the observed effect size (Cohen's h ≈ 0.34) and sample sizes (n1=311, n2=1,635), the achieved statistical power at α=0.05 exceeds 99%. The minimum treatment sample size required for conventional 80% power at this size and allocation ratio is approximately 83 patients, which is below the 311 patients available. Sample size is not a limiting factor in this analysis.
+Given the observed effect size (Cohen's h = 0.34) and sample sizes (n1=311, n2=1,635), the achieved statistical power at α=0.05 exceeds 99%. The minimum treatment sample size required for conventional 80% power at this size and allocation ratio is approximately 83 patients, which is below the 311 patients available. Sample size is not a limiting factor in this analysis.
 
 6. Limitations
 
