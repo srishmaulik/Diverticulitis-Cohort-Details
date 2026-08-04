@@ -1,8 +1,10 @@
-Srish Maulik AD206
+**Srish Maulik** 
+**AD206**
 
-Retrospective Cohort Study: Amoxicillin/Clavulanate for Diverticulitis of the Colon
+**A retrospective Cohort Study on the effect of Amoxicillin/Clavulanate for Diverticulitis of the Colon**
 
-1. Purpose of the Study
+**1. Purpose of the Study**
+
 This study evaluates the effectiveness of amoxicillin/clavulanate in treating diverticulitis of the colon as compared to other treatments. This drug is commonly prescribed as first-line oral antibiotic therapy for uncomplicated diverticulitis.
 Using Atlas, I proved that a retrospective cohort for this drug-outcome pair can be constructed and analyzed using UCSF's de-identified research data assets.
 Outcome measure (treatment failure): a composite flag capturing evidence of clinical deterioration in the 30 days following the index diagnosis, or for patients being treated, after the first drug exposure, including:
@@ -13,7 +15,9 @@ Outcome measure (treatment failure): a composite flag capturing evidence of clin
 - Operative episodes (surgery/anesthesia encounters specifically tied to a surgical department)
 
 
-2. Cohort Definition — Qualification Cohort
+
+**2. Cohort Definition — Qualification Cohort**
+
 Inclusion criteria:
 - Diagnosis of diverticulitis of the colon (OMOP concept 77025 and descendants), first qualifying episode per patient
 - Age ≥ 18 at diagnosis
@@ -26,7 +30,8 @@ This qualification cohort, including all patients who met the requirement of hav
 <img width="819" height="457" alt="Screenshot 2026-08-04 at 4 13 37 PM" src="https://github.com/user-attachments/assets/9047807f-3479-41d4-a184-1f0014699708" />
 
 
-3. Cohort Definition — Treatment Cohort
+**3. Cohort Definition — Treatment Cohort**
+
 Of the 1,946 qualifying patients, those who additionally received amoxicillin/clavulanate (OMOP drug concepts 40105044, 40131073, 40131077, 40105046 and descendants) within 14 days of diagnosis were assigned to the treatment cohort: n = 311 patients, with a follow up window of 30 days. 
 
 Table 1 — Qualification Cohort vs. Treatment Cohort
@@ -43,10 +48,11 @@ I have also created a Table 1 to show the comparison between those who didn't ta
 
 As seen in the tables and images, the demographics were broadly similar, with a slight over-representation of the Asian community in the treatment cohort and suppressed records of unrepresented/unknown races or native Hawaiins and Pacific Islanders. 
 
+
 <img width="821" height="459" alt="Screenshot 2026-08-04 at 4 11 47 PM" src="https://github.com/user-attachments/assets/eeee6482-3a84-43b3-83e2-d46a80e74856" />
 
 
-4. Outcome Analysis
+**4. Outcome Analysis**
 
 The 30-day treatment-failure window was anchored to the diagnosis date for the baseline cohort (no amoxicillin/clavulanate drug exposure to refer to), and to the drug start date for the treatment cohort to avoid protopathic bias, which is attributing pre-treatment clinical events to the drug. 
 To measure the effectiveness of the amoxicillin/clavulanate drug, I conducted a measuring of the failure rates of the drug. 
@@ -67,11 +73,13 @@ To check whether the treatment status has an association to the failure rate, I 
 
 
 
-5. Statistical Power Analysis
+**5. Statistical Power Analysis**
+
    
 Given the observed effect size (Cohen's h = 0.34) and sample sizes (n1=311, n2=1,635), the achieved statistical power at α=0.05 exceeds 99%. The minimum treatment sample size required for conventional 80% power at this size and allocation ratio is approximately 83 patients, which is below the 311 patients available. Sample size is not a limiting factor in this analysis.
 
-6. Limitations
+**6. Limitations**
+
 
 - Confounding by Indication (The "Sicker Patient" Bias) : In a cohort study, doctors do not randomize who gets what. If patients who took amoxicillin/clavulanate had a higher failure rate than those who took nothing or something that was not a powerful broad spectrum antibiotic like what amoxicillin/clavulanate is, it is highly likely because the group that didn't take the drug had a much milder disease to begin with. Modern medical guidelines (such as those from the American Gastroenterological Association) even  recommend a no-antibiotic watchful waiting approach for very mild, completely uncomplicated diverticulitis, as these patients usually recover on their own. So if a doctor did prescribe amoxicillin/clavulanate, that patient likely had elevated markers like inflammation, more pain, meaning that they were already at a higher baseline risk for treatment failure or hospitalization. 
 - Comparator composition: The baseline cohort excludes only patients who received amoxicillin/clavulanate within 14 days of diagnosis. It does not exclude patients who received an alternate antibiotic regimen (e.g metronidazole, fluoroquinolones). The baseline is therefore best described as "did not receive this specific drug early," not as a pure untreated comparator.
