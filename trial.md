@@ -15,7 +15,7 @@
 
 | Component | Group Score | Albert Score | Points | Additional Justification (if needed) | Comments from Albert | Peer Eval 1 (group1 ) Score | Peer Eval 1 Comments | Peer Eval 2 (group 3) Score | Peer Eval 2 Comments |
 |---|---:|---:|---:|---|---|---:|---|---:|---|
-| There is a `.md` file in `20260729_submissions`, and it includes group members | 1 |  | 1 |  |  | 1 | I will trust that you will upload your `.md` file once it is completed | 1 |  |
+| There is a `.md` file in `20260729_submissions`, and it includes group members | 1 |  | 1 |  |  | 1 | | 1 |  |
 | Everyone on the team spoke during the consultation. | 1 |  | 1 |  |  | 1 | Way to speak!!! | 1 |  |
 | You were able to complete the consultation within 30 min. | 0 |  | 1 | Consultation went over the 30-minute limit (~44 minutes). |  | 0 | It looks like you went for ~44 minutes | 0 | Went over time limit |
 | Enough probing questions were asked to convince Albert that you have an adequate understanding of the problem. | 3 |  | 3 | The team asked clarifying questions to understand the cohort requirements. |  | 3 | You did a good job asking questions and figuring out what he was looking for. Asking for what drugs he was interested in from the beginning would have sped up your process | 3 | Group 1 asked Albert plenty of clarifying questions and had a sufficient understanding of the problem. |
