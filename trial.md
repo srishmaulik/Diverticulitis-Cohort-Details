@@ -13,7 +13,7 @@
 
 ## Rubric
 
-| Component | Group Score | Albert Score | Points | Additional Justification (if needed) | Comments from Albert | Peer Eval 1 (group 1) Score | Peer Eval 1 (group 1) Comments | Peer Eval 2 (group 3) Score | Peer Eval (group 3) 2 Comments |
+| Component | Group Score | Albert Score | Points | Additional Justification (if needed) | Comments from Albert | Peer Eval 1 (group 1) Score | Peer Eval 1 (group 1) Comments | Peer Eval 2 (group 3) Score | Peer Eval 2 (group 3) Comments |
 |---|---:|---:|---:|---|---|---:|---|---:|---|
 | There is a `.md` file in `20260729_submissions`, and it includes group members | 1 |  | 1 |  |  | 1 | | 1 |  |
 | Everyone on the team spoke during the consultation. | 1 |  | 1 |  |  | 1 | Way to speak!!! | 1 |  |
