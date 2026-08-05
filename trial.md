@@ -22,7 +22,7 @@
 | The solution presented was an appropriate fit for the problem. | 3 |  | 3 | The cohort logic and approach were appropriate for the problem. |  | 3 | The logic of your solution was good. Good job spending time working through the concept sets to look for the right drug(s). | 3 | They were able to make a proper cohort definition with 18 total patients. |
 | The team were able to adequately answer Albert's questions | 2 |  | 3 | The team successfully identified a group of 18 patients, but did not reach the exact expected cohort size. |  | 2 | You did a good job of finding the group of 18. | 2 | Group 2 did a good job working through all of Albert's requests but were unable to reach the desired cohort size of 80. |
 | 1 point for each peer eval received | 1 |  | 1 | One peer evaluation has been received. |  |  |  |  |  |
-| 1 point for each peer eval provided |  |  | 1 |  |  |  |  |  |  |
-| Bonus: 1 point for each additional peer eval received |  |  | 1 |  |  |  |  |  |  |
+| 1 point for each peer eval provided | 1 |  | 1 |  |  |  |  |  |  |
+| Bonus: 1 point for each additional peer eval received | 1 |  | 1 |  |  |  |  |  |  |
 | Bonus: 1 point for each additional peer eval provided |  |  | 1 |  |  |  |  |  |  |
 | **Total** | **12** |  | **12** |  |  | **10/12** | Overall: "You guys did great! Way to grind 💪" |  |  |
