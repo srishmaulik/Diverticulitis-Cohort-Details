@@ -1,5 +1,7 @@
 # Milestone 2: Cohort Validity and Clinical Note Analysis
 
+In order to represent a subset of the untreated cohort rather than extracting notes for all 1,635-patient baseline population, I chose 311 treatment patients (the entire treatment cohort) and a random sample of 200 baseline patients were selected as candidates for note extraction (n=511). Of these, only 268 patients (172/311 treatment, 96/200 baseline) had at least one Progress Note within the defined 7-day extraction window; the remaining 243 candidates had no qualifying note in that window and were excluded from the notes-based analysis, yielding 771 total notes (396 from the treatment group, 375 from the baseline group)."
+
 ## Part 1: Structured Cohort Demographics (From Milestone 1)
 
 **1. Cohort Definition — Qualification Cohort vs. Treatment Cohort**
