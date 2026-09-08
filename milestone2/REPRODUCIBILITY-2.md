@@ -2,7 +2,7 @@
 
 This document contains every step, command, and script needed to reproduce
 the Milestone 2 analysis end to end: note extraction, pattern matching, and
-3-model LLM inference (Qwen on Core HPC, OpenBioLLM and Mistral on AWS EC2),
+3-model LLM inference (Qwen and OpenBioLLM on Core HPC, Mistral on AWS EC2),
 through to the final merged analysis.
 
 ## Environment Overview
@@ -18,6 +18,12 @@ through to the final merged analysis.
 All patient-level data remained within UCSF's de-identified, access-controlled
 environments (Athena's `deid_omop`/`deid_cdw_ucsf` schemas, Core HPC scratch
 storage, and the IC-Secure EC2 environment) throughout the pipeline.
+
+**Note on OpenBioLLM's environment:** OpenBioLLM was initially planned for
+EC2 but was moved to Core HPC partway through the project (reusing the
+already-working `m2_env` conda environment set up for Qwen, with faster job
+turnaround than a fresh EC2 boot). All results used in the final analysis
+come from the Core HPC run. Mistral remained on EC2 throughout.
 
 ---
 
@@ -409,7 +415,7 @@ sbatch run_openbiollm_v2.slurm --task diverticulitis \
 sbatch run_openbiollm_v2.slurm --task drug \
   --input input/notes_for_inference.csv --output output/drug_openbiollm_v2_results.parquet
 squeue -u $USER
-tail -f logs/qwen_*.out
+tail -f logs/openbiollm_*.out
 ```
 Results downloaded via `scp` to the local analysis folder.
 
@@ -457,17 +463,84 @@ snapshot_download(repo_id='mistralai/Mistral-7B-Instruct-v0.3', local_dir='/home
 ```
 `notes_for_inference.csv` copied to the instance the same way as the HPC input.
 
-### `mistral_infer.py`
-> **TODO before submitting the repo:** paste in the exact script actually
-> run, so this section matches what produced the Mistral results rather
-> than an inferred approximation. Same structure as
-> `openbiollm_infer_v2.py` is expected — identical question wording (for a
-> fair 3-way comparison), Mistral's `[INST]...[/INST]` chat template in
-> place of the Llama-3 header tokens, and the same structured-decoding
-> `StructuredOutputsParams(choice=["YES", "NO"])` fix, since Mistral's
-> results showed no parsing/hallucination issues in QA.
+### `mistral_infer.py` (final version — structured decoding, matches Qwen/OpenBioLLM methodology)
+```python
+import argparse
+import os
+import pandas as pd
+from vllm import LLM, SamplingParams
+from vllm.sampling_params import StructuredOutputsParams
 
-### Run and retrieve
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--task", required=True, choices=["diverticulitis", "drug"])
+    parser.add_argument("--input", required=True)
+    parser.add_argument("--output", required=True)
+    parser.add_argument("--model_dir", default="/home/ubuntu/models/mistral-7b-instruct")
+    args = parser.parse_args()
+
+    df = pd.read_csv(args.input) if args.input.endswith(".csv") else pd.read_parquet(args.input)
+    print(f"Loaded {len(df)} notes from {args.input}. Initializing vLLM...")
+
+    llm = LLM(
+        model=args.model_dir,
+        tensor_parallel_size=1,
+        trust_remote_code=True,
+        gpu_memory_utilization=0.90,
+        max_model_len=4096,
+        enforce_eager=True,
+    )
+    sampling_params = SamplingParams(
+        temperature=0.0,
+        max_tokens=10,
+        structured_outputs=StructuredOutputsParams(choice=["YES", "NO"]),
+    )
+
+    prompts = []
+    for _, row in df.iterrows():
+        text = str(row.get("note_text", ""))[:3000]
+        if args.task == "diverticulitis":
+            user_msg = (
+                "Does this clinical note mention diverticulitis or related "
+                f"diverticular disease?\n\nNote:\n{text}"
+            )
+        else:
+            user_msg = (
+                "Does this clinical note mention the patient receiving, being "
+                "prescribed, or currently taking amoxicillin-clavulanate (also "
+                f"called Augmentin, amox-clav, or amoxicillin/clavulanate)?\n\nNote:\n{text}"
+            )
+        # Mistral instruct chat template (not Llama-3 header tokens)
+        prompt = f"[INST] You are an expert clinical annotator. Answer with YES or NO only.\n\n{user_msg} [/INST]"
+        prompts.append(prompt)
+
+    print(f"Running batch inference for {args.task}...")
+    outputs = llm.generate(prompts, sampling_params)
+    results = [out.outputs[0].text.strip() for out in outputs]
+    print(f"Results: {results.count('YES')} YES, {results.count('NO')} NO (out of {len(results)})")
+
+    df[f"{args.task}_llm_result"] = results
+    df["model_name"] = "Mistral-7B-Instruct-v0.3"
+    os.makedirs(os.path.dirname(args.output) or ".", exist_ok=True)
+    df.to_parquet(args.output, index=False)
+    print(f"Finished successfully. Saved to {args.output}")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+**Note on iteration:** an earlier Mistral run used prompt-based constraint
+only (instructing the model to answer YES/NO, then string-matching the raw
+output, with an `UNCLEAR` fallback category for anything that didn't
+contain either token). That run happened to produce zero `UNCLEAR` cases,
+but the constraint mechanism was inconsistent with Qwen and OpenBioLLM's
+token-level `StructuredOutputsParams` approach. The version above was
+re-run with the same structured-decoding constraint used for the other two
+models, for methodological parity across all three.
+
+### Submission
 ```bash
 python mistral_infer.py --task diverticulitis \
   --input notes_for_inference.csv --output diverticulitis_mistral_results.parquet
@@ -535,5 +608,8 @@ one-row-per-patient table underlying every figure in the write-up.
 8. Table 1s and Step 5 comparisons print to console and save to
    `patient_level_merged_results.csv`.
 
-All SQL and Python scripts in this document are the exact versions used to
-produce the results in the final write-up.
+All three LLMs use the same constraint mechanism (`StructuredOutputsParams`
+with a binary YES/NO token choice at generation time) and the same
+question wording per task, differing only in chat-template formatting
+appropriate to each model family.
+
