@@ -333,7 +333,12 @@ While clinical notes contain rich, nuanced data, extracting drug exposures via z
 
 
 Extraction Method	Baseline FP	Treatment FN
+
 Pattern-Match	10	49
+
 OpenBioLLM	89	14
+
 Qwen	7	74
+
 Mistral	37	49
+
