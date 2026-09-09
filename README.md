@@ -329,3 +329,11 @@ While Qwen demonstrated excellent specificity (correctly identifying 89 baseline
 
 **Conclusion:** 
 While clinical notes contain rich, nuanced data, extracting drug exposures via zero-shot LLM inference introduces unacceptable levels of variance, hallucination, and sensitivity to prompt architecture. Unless an LLM pipeline is rigorously fine-tuned and verified for high specificity (like Qwen, though at the cost of sensitivity), relying on structured medication exposure tables (Milestone 1) is a far more robust mechanism for defining strict cohort criteria.
+
+
+
+Extraction Method	Baseline FP	Treatment FN
+Pattern-Match	10	49
+OpenBioLLM	89	14
+Qwen	7	74
+Mistral	37	49
