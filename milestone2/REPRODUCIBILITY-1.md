@@ -1,8 +1,8 @@
 # Milestone 2 — Reproducibility Documentation
 
 This document contains every step, command, and script needed to reproduce
-the Milestone 2 analysis end to end: note extraction, pattern matching, and
-3-model LLM inference (Qwen on Core HPC, OpenBioLLM and Mistral on AWS EC2),
+the Milestone 2 analysis end to end from note extraction, pattern matching, and
+3-model LLM inference (Qwen and OpenBioLLM on Core HPC, Mistral on AWS EC2),
 through to the final merged analysis.
 
 ## Environment Overview
@@ -413,15 +413,6 @@ tail -f logs/qwen_*.out
 ```
 Results downloaded via `scp` to the local analysis folder.
 
-**Note on iteration:** an earlier OpenBioLLM run without structured decoding
-produced unreliable free-text answers (full sentences instead of YES/NO,
-including truncated responses under a 32-token cap) that a downstream
-parser struggled to interpret consistently. Switching to
-`StructuredOutputsParams` — which constrains the model's actual token
-generation rather than relying on prompt-following — resolved this
-completely; the results included in the final analysis are from this
-corrected run.
-
 ---
 
 ## Step 2/3: LLM Inference — Model 3: Mistral-7B-Instruct (AWS EC2, IC Secure)
@@ -552,13 +543,13 @@ if __name__ == "__main__":
 **Note on methodology:** unlike OpenBioLLM, Mistral was not run with
 `StructuredOutputsParams`-enforced decoding — it used a prompt-based
 instruction plus regex/sentence-pattern parsing of the raw output. This
-was sufficient for Mistral specifically because its raw responses were
+was ok for Mistral  because its raw responses were
 consistently clean YES/NO (or clearly parseable full-sentence) answers,
-with no truncation or hallucination observed on manual review — the
+with no truncation or hallucination observed after a manual review. The
 structured-decoding fix was only necessary for OpenBioLLM, which
 exhibited a genuine calibration problem that persisted regardless of
 output-format enforcement. Mistral's results in this repository come
-from this prompt-based run; no structured-decoding rerun was performed.
+from this prompt-based run, so no structured-decoding rerun was performed.
 
 ### Run and retrieve
 ```bash
@@ -597,19 +588,14 @@ LEFT JOIN sguhamaulik.drug_pattern_match drm ON n.deid_note_key = drm.deid_note_
 ```
 Downloaded as `athena_pattern_matched.csv`.
 
-### Local merge & analysis (`milestone2_step4_5.py`)
+### Local merge & analysis (`table1_generator.py`)
 Loads all 6 model result files (auto-detecting each file's prediction
 column), loads the Athena export, merges everything to note level, rolls
 up to patient level (a patient is YES for a method if *any* of their notes
 were YES), then prints Table 1s (age/gender/race/ethnicity by
-method-and-concept) and Step 5 agreement crosstabs (each model vs.
-pattern-match baseline, plus a cohort-group split for the drug task).
+method-and-concept).
 
-```bash
-pip install pandas
-python milestone2_step4_5.py
-```
-Full script contents: see `milestone2_step4_5.py` in this repository.
+Full script contents: see `table1_generator.py` in this repository.
 
 Output: `patient_level_merged_results.csv` — the final 268-patient,
 one-row-per-patient table underlying every figure in the write-up.
@@ -624,7 +610,7 @@ one-row-per-patient table underlying every figure in the write-up.
 4. Run OpenBioLLM inference on Core HPC (2 SLURM jobs).
 5. Run Mistral inference on EC2 (2 runs).
 6. Run the Athena demographics/baseline export query, download as CSV.
-7. Place all result files in one local folder and run `milestone2_step4_5.py`.
+7. Place all result files in one local folder and run `table1_generator.py`.
 8. Table 1s and Step 5 comparisons print to console and save to
    `patient_level_merged_results.csv`.
 
