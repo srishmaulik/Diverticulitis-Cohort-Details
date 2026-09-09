@@ -106,6 +106,8 @@ Since Part 2's analysis covers only the 268-patient subset with an extractable P
 
 To validate the structured cohort definitions, clinical notes for the 268-patient sampled subset (771 total notes: 396 treatment, 375 baseline) were analyzed. Concepts were extracted using a standard regex pattern-match alongside three distinct LLMs (Qwen2.5-7B-Instruct, Llama-3-OpenBioLLM-8B, Mistral-7B-Instruct), each run with structured/guided decoding to enforce strict binary YES/NO classification.
 
+*All patient-level counts below (n=268) were regenerated from `table1_generator.py` after adding ethnicity to the per-patient rollup and Table 1 output, which was missing from the original version of the script.*
+
 ### A. DIAGNOSIS (Diverticulitis) Demographics
 
 **Table 1.1: Diagnosis via Pattern-Match Baseline (Athena)**
@@ -121,6 +123,11 @@ To validate the structured cohort definitions, clinical notes for the 268-patien
 | Asian | 9 (22.0%) | 28 (12.3%) |
 | Black or African American | 2 (4.9%) | 14 (6.2%) |
 | Declined / Unknown / Pac. Isl. | 1 (2.4%) | 3 (1.2%) |
+| **Ethnicity** | | |
+| Not Hispanic or Latino | 37 (90.2%) | 185 (81.5%) |
+| Hispanic or Latino | 3 (7.3%) | 37 (16.3%) |
+| Declined | 1 (2.4%) | 4 (1.8%) |
+| Unknown | 0 (0.0%) | 1 (0.4%) |
 
 **Table 1.2: Diagnosis via Llama-3-OpenBioLLM**
 
@@ -135,6 +142,11 @@ To validate the structured cohort definitions, clinical notes for the 268-patien
 | Asian | 4 (18.2%) | 33 (13.4%) |
 | Black or African American | 1 (4.5%) | 15 (6.1%) |
 | Declined / Unknown / Pac. Isl. | 1 (4.5%) | 3 (1.2%) |
+| **Ethnicity** | | |
+| Not Hispanic or Latino | 18 (81.8%) | 204 (82.9%) |
+| Hispanic or Latino | 3 (13.6%) | 37 (15.0%) |
+| Declined | 1 (4.5%) | 4 (1.6%) |
+| Unknown | 0 (0.0%) | 1 (0.4%) |
 
 **Table 1.3: Diagnosis via Qwen**
 
@@ -149,6 +161,11 @@ To validate the structured cohort definitions, clinical notes for the 268-patien
 | Asian | 9 (14.1%) | 28 (13.7%) |
 | Black or African American | 4 (6.2%) | 12 (5.9%) |
 | Declined / Unknown / Pac. Isl. | 1 (1.6%) | 3 (1.5%) |
+| **Ethnicity** | | |
+| Not Hispanic or Latino | 56 (87.5%) | 166 (81.4%) |
+| Hispanic or Latino | 6 (9.4%) | 34 (16.7%) |
+| Declined | 1 (1.6%) | 4 (2.0%) |
+| Unknown | 1 (1.6%) | 0 (0.0%) |
 
 **Table 1.4: Diagnosis via Mistral**
 
@@ -163,6 +180,11 @@ To validate the structured cohort definitions, clinical notes for the 268-patien
 | Asian | 5 (16.7%) | 32 (13.4%) |
 | Black or African American | 2 (6.7%) | 14 (5.9%) |
 | Declined / Unknown / Pac. Isl. | 1 (3.3%) | 2 (0.8%) |
+| **Ethnicity** | | |
+| Not Hispanic or Latino | 25 (83.3%) | 197 (82.8%) |
+| Hispanic or Latino | 5 (16.7%) | 35 (14.7%) |
+| Declined | 0 (0.0%) | 5 (2.1%) |
+| Unknown | 0 (0.0%) | 1 (0.4%) |
 
 ### B. DRUG (Amoxicillin-Clavulanate) Demographics
 
@@ -179,6 +201,11 @@ To validate the structured cohort definitions, clinical notes for the 268-patien
 | Asian | 14 (10.4%) | 23 (17.3%) |
 | Black or African American | 7 (5.2%) | 9 (6.8%) |
 | Declined / Unknown / Pac. Isl. | 2 (1.4%) | 2 (1.6%) |
+| **Ethnicity** | | |
+| Not Hispanic or Latino | 109 (80.7%) | 113 (85.0%) |
+| Hispanic or Latino | 24 (17.8%) | 16 (12.0%) |
+| Declined | 2 (1.5%) | 3 (2.3%) |
+| Unknown | 0 (0.0%) | 1 (0.8%) |
 
 **Table 2.2: Drug via Llama-3-OpenBioLLM**
 
@@ -193,6 +220,11 @@ To validate the structured cohort definitions, clinical notes for the 268-patien
 | Asian | 3 (14.3%) | 34 (13.8%) |
 | Black or African American | 2 (9.5%) | 14 (5.7%) |
 | Declined / Unknown / Pac. Isl. | 1 (4.8%) | 3 (1.2%) |
+| **Ethnicity** | | |
+| Not Hispanic or Latino | 14 (66.7%) | 208 (84.2%) |
+| Hispanic or Latino | 6 (28.6%) | 34 (13.8%) |
+| Declined | 1 (4.8%) | 4 (1.6%) |
+| Unknown | 0 (0.0%) | 1 (0.4%) |
 
 **Table 2.3: Drug via Qwen**
 
@@ -207,6 +239,11 @@ To validate the structured cohort definitions, clinical notes for the 268-patien
 | Asian | 20 (12.3%) | 17 (16.2%) |
 | Black or African American | 9 (5.5%) | 7 (6.7%) |
 | Declined / Unknown / Pac. Isl. | 3 (1.8%) | 1 (1.0%) |
+| **Ethnicity** | | |
+| Not Hispanic or Latino | 128 (78.5%) | 94 (89.5%) |
+| Hispanic or Latino | 31 (19.0%) | 9 (8.6%) |
+| Declined | 3 (1.8%) | 2 (1.9%) |
+| Unknown | 1 (0.6%) | 0 (0.0%) |
 
 **Table 2.4: Drug via Mistral**
 
@@ -221,6 +258,11 @@ To validate the structured cohort definitions, clinical notes for the 268-patien
 | Asian | 11 (10.2%) | 26 (16.2%) |
 | Black or African American | 2 (1.9%) | 14 (8.8%) |
 | Declined / Unknown / Pac. Isl. | 2 (1.8%) | 2 (1.2%) |
+| **Ethnicity** | | |
+| Not Hispanic or Latino | 84 (77.8%) | 138 (86.2%) |
+| Hispanic or Latino | 20 (18.5%) | 20 (12.5%) |
+| Declined | 3 (2.8%) | 2 (1.2%) |
+| Unknown | 1 (0.9%) | 0 (0.0%) |
 
 ---
 
