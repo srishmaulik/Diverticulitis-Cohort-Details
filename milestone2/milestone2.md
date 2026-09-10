@@ -285,15 +285,7 @@ This conclusion follows from cross-referencing unstructured drug extractions aga
 | Qwen | 89 True Negatives (7 False Positives) | 98 True Positives (74 False Negatives) |
 | Mistral | 59 True Negatives (37 False Positives) | 123 True Positives (49 False Negatives) |
 
-**4. Scoring metrics**
+I have not calculated any scoring metrics. This is because, considering EHR as ground truth labels in order to calculate them, is incorrect in my opinion in my opinion. We can use the massive cross-model instability as a reason for why EHR is better, but we cannot consider it a ground truth. 
 
-| Method        | Precision | Recall | F1    |
-|---------------|-----------|--------|-------|
-| Pattern-Match | 92.5%     | 71.5%  | 0.807 |
-| OpenBioLLM    | 64.0%     | 91.9%  | 0.754 |
-| Qwen          | 93.3%     | 57.0%  | 0.708 |
-| Mistral       | 76.9%     | 71.5%  | 0.741 |
-
-Precision = TP/(TP+FP), Recall = TP/(TP+FN), using structured EHR as reference, ground truths. Simple regex pattern-matching has the highest F1 of all four methods, edging out all the LLM's. 
 
 **Conclusion:** There are two lines of evidence that support relying on structured EHR data over LLM-based note extraction for identifying drug administration in this cohort. First, the three LLMs contrasted each other on identical note text. OpenBioLLM flagged 91% of notes as drug-positive, Qwen only 32%, and Mistral 60%. This indicates the extraction method itself isn't a stable, reproducible signal independent of which model is used. After manual review of some specific cases, I came to the conclusion that this was not just different judgment in decision. OpenBioLLM classified notes with no drug-related content at all (a neurosurgery post-operative check, a physical therapy note) as positive, which is a direct verifiable error. Second, when compared against structured medication exposure data, all three models showed substantial disagreement in one direction or the other. This second comparison treats structured data as a reference point rather than a verified gold standard, since drug exposure records could themselves contain entry errors, but, as the most direct record of a clinical event, it remains the more reliable evidence for this analysis. Taken together, the cross-model inconsistency on identical text, directly observed hallucination, and disagreement with the most proximate available record of drug administration, we can conclude structured EHR data is currently the more reliable source for defining strict cohort inclusion criteria, while acknowledging that a fully independent validation would require blinded manual chart review beyond this analysis's scope.
