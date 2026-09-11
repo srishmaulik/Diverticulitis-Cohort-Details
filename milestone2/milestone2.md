@@ -289,3 +289,18 @@ I have not calculated any scoring metrics. This is because, considering EHR as g
 
 
 **Conclusion:** There are two lines of evidence that support relying on structured EHR data over LLM-based note extraction for identifying drug administration in this cohort. First, the three LLMs contrasted each other on identical note text. OpenBioLLM flagged 91% of notes as drug-positive, Qwen only 32%, and Mistral 60%. This indicates the extraction method itself isn't a stable, reproducible signal independent of which model is used. After manual review of some specific cases, I came to the conclusion that this was not just different judgment in decision. OpenBioLLM classified notes with no drug-related content at all (a neurosurgery post-operative check, a physical therapy note) as positive, which is a direct verifiable error. Second, when compared against structured medication exposure data, all three models showed substantial disagreement in one direction or the other. This second comparison treats structured data as a reference point rather than a verified gold standard, since drug exposure records could themselves contain entry errors, but, as the most direct record of a clinical event, it remains the more reliable evidence for this analysis. Taken together, the cross-model inconsistency on identical text, directly observed hallucination, and disagreement with the most proximate available record of drug administration, we can conclude structured EHR data is currently the more reliable source for defining strict cohort inclusion criteria, while acknowledging that a fully independent validation would require blinded manual chart review beyond this analysis's scope.
+
+
+
+| Component | Your Score | Albert Score | Points | Additional Justification (if needed) | Comments from Albert |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| There is a git repo and video link in the Project Milestone 2 Submissions page. | 1 | | 1 | | |
+| Your git repo contains all the steps necessary to reproduce your analysis. | 5 | | 5 | | |
+| Your video is <= 3 minutes. | 1 | | 1 | | |
+| You receive at least 3 questions from your classmates. | 3 | | 3 | | |
+| You mentioned the total number of notes you are including in your analysis. | 1 | | 1 | | |
+| You applied pattern matching. | 1 | | 1 | | |
+| You applied LLM inference using at least 3 models. | 1 | | 1 | | |
+| You created a table 1 for the results of your concept extractions. | 1 | | 1 | | |
+| You answer whether it would be more reliable to rely on structured EHR or concept extractions from clinical notes to identify patients in your cohort who received the drug. | 1 | | 1 | | |
+| **Total** | **15** | | **15** | | |
