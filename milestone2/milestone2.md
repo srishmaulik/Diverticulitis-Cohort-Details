@@ -265,6 +265,7 @@ To validate the structured cohort definitions, clinical notes for the 268-patien
 | Unknown | 1 (0.9%) | 0 (0.0%) |
 
 ---
+Across all eight Table 1 comparisons, age, gender, and race distributions between patients flagged YES vs. NO were somewhat similar. No method showed a meaningful or consistent demographic skew in either direction. This aligns with our expectations from Milestone 1, where the qualification and treatment cohorts were already demographically balanced (~50% female, ~66% White, ~12-14% Hispanic/Latino). The note extraction did not appear to introduce any demographic bias in concept detection, suggesting the 268-patient sample's demographic composition, modestly shifted from the full cohort due to the note-availability filtering, did not affect the extraction results too much. 
 
 ## Reliability Analysis (Structured vs. Unstructured Data)
 
